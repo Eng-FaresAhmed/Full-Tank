@@ -1,1 +1,271 @@
 <!-- Ayat-->
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Recipe - FullTank</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recipe-form.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Full<span>Tank</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="admin-recipes.html">Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <!-- Recipe Form Section -->
+    <section class="recipe-form-section">
+
+        <div class="form-container">
+
+            <div class="form-heading">
+                <p class="form-small-title">SHARE YOUR CREATION</p>
+
+                <h1>Add a New Recipe</h1>
+
+                <p>
+                    Share your favorite recipe with the FullTank community.
+                    Add ingredients and instructions to get started.
+                </p>
+            </div>
+
+
+            <form action="recipe-preview.html" method="get">
+
+                <!-- Recipe Name -->
+                <div class="form-group">
+
+                    <label for="recipe-name">Recipe Name *</label>
+
+                    <input
+                        type="text"
+                        id="recipe-name"
+                        name="recipe-name"
+                        placeholder="Enter recipe name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Recipe Course -->
+                <div class="form-group">
+
+                    <label for="course">Recipe Category *</label>
+
+                    <select id="course" name="course" required>
+
+                        <option value="">Select a category</option>
+
+                        <option value="Appetizer">Appetizer</option>
+
+                        <option value="Main Course">Main Course</option>
+
+                        <option value="Dessert">Dessert</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Ingredients Section -->
+                <div class="ingredients-section">
+
+                    <div class="ingredients-heading">
+
+                        <h2>Ingredients</h2>
+
+                        <p>Add all ingredients with their quantities.</p>
+
+                    </div>
+
+
+                    <!-- Ingredient 1 -->
+                    <div class="ingredient-row">
+
+                        <div class="ingredient-input">
+
+                            <label for="ingredient-1">Ingredient Name *</label>
+
+                            <input
+                                type="text"
+                                id="ingredient-1"
+                                name="ingredient-1"
+                                placeholder="e.g. Flour"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="quantity-input">
+
+                            <label for="quantity-1">Quantity *</label>
+
+                            <input
+                                type="text"
+                                id="quantity-1"
+                                name="quantity-1"
+                                placeholder="e.g. 2 cups"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ingredient 2 -->
+                    <div class="ingredient-row">
+
+                        <div class="ingredient-input">
+
+                            <label for="ingredient-2">Ingredient Name</label>
+
+                            <input
+                                type="text"
+                                id="ingredient-2"
+                                name="ingredient-2"
+                                placeholder="e.g. Sugar"
+                            >
+
+                        </div>
+
+                        <div class="quantity-input">
+
+                            <label for="quantity-2">Quantity</label>
+
+                            <input
+                                type="text"
+                                id="quantity-2"
+                                name="quantity-2"
+                                placeholder="e.g. 1 cup"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Ingredient 3 -->
+                    <div class="ingredient-row">
+
+                        <div class="ingredient-input">
+
+                            <label for="ingredient-3">Ingredient Name</label>
+
+                            <input
+                                type="text"
+                                id="ingredient-3"
+                                name="ingredient-3"
+                                placeholder="e.g. Butter"
+                            >
+
+                        </div>
+
+                        <div class="quantity-input">
+
+                            <label for="quantity-3">Quantity</label>
+
+                            <input
+                                type="text"
+                                id="quantity-3"
+                                name="quantity-3"
+                                placeholder="e.g. 100 g"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="button" class="add-ingredient-btn">
+                        + Add Another Ingredient
+                    </button>
+
+                </div>
+
+
+                <!-- Recipe Description -->
+                <div class="form-group">
+
+                    <label for="description">Recipe Description *</label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        placeholder="Write a short description about your recipe..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Cooking Instructions -->
+                <div class="form-group">
+
+                    <label for="instructions">Cooking Instructions *</label>
+
+                    <textarea
+                        id="instructions"
+                        name="instructions"
+                        rows="7"
+                        placeholder="Write the steps to prepare your recipe..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Form Buttons -->
+                <div class="form-buttons">
+
+                    <a href="admin-recipes.html" class="cancel-btn">
+                        Cancel
+                    </a>
+
+                    <button type="reset" class="reset-btn">
+                        Clear Form
+                    </button>
+
+                    <button type="submit" class="preview-btn">
+                        Preview Recipe →
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

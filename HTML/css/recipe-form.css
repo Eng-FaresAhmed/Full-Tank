@@ -1,0 +1,237 @@
+
+/* Recipe Form Section */
+
+.recipe-form-section {
+    padding: 70px 20px;
+    background-color: #073D2B;
+    min-height: 100vh;
+}
+
+.form-container {
+    max-width: 850px;
+    margin: auto;
+    padding: 40px;
+    background-color: #10543B;
+    border: 1px solid #7A9B85;
+    border-radius: 18px;
+}
+
+
+/* Form Heading */
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-small-title {
+    color: #D5F15B;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.form-heading h1 {
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 38px;
+    margin-bottom: 15px;
+    font-weight: normal;
+}
+
+.form-heading p {
+    color: #C5D4CA;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+
+/* Form Groups */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label,
+.ingredient-row label {
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.ingredient-row input {
+    width: 100%;
+    padding: 14px;
+    background-color: #073D2B;
+    color: white;
+    border: 1px solid #7A9B85;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.ingredient-row input::placeholder {
+    color: #9DB4A4;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.ingredient-row input:focus {
+    border-color: #D5F15B;
+    box-shadow: 0 0 5px rgba(213, 241, 91, 0.2);
+}
+
+.form-group select option {
+    background-color: #073D2B;
+    color: white;
+}
+
+.form-group textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+
+/* Ingredients Section */
+
+.ingredients-section {
+    margin: 35px 0;
+    padding: 25px;
+    background-color: #073D2B;
+    border: 1px solid #7A9B85;
+    border-radius: 12px;
+}
+
+.ingredients-heading h2 {
+    color: #D5F15B;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.ingredients-heading p {
+    color: #C5D4CA;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+
+/* Ingredient Rows */
+
+.ingredient-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.ingredient-input {
+    flex: 2;
+    min-width: 0;
+}
+
+.quantity-input {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* Add Ingredient Button */
+
+.add-ingredient-btn {
+    background-color: transparent;
+    color: #D5F15B;
+    border: 1px dashed #D5F15B;
+    padding: 12px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-ingredient-btn:hover {
+    background-color: #D5F15B;
+    color: #073D2B;
+}
+
+
+/* Form Buttons */
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.form-buttons a,
+.form-buttons button {
+    padding: 13px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.cancel-btn {
+    background-color: transparent;
+    color: #C5D4CA;
+    border: 1px solid #7A9B85 !important;
+}
+
+.reset-btn {
+    background-color: #C5D4CA;
+    color: #073D2B;
+}
+
+.preview-btn {
+    background-color: #D5F15B;
+    color: #073D2B;
+}
+
+.preview-btn:hover,
+.reset-btn:hover {
+    background-color: #C2DF42;
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 600px) {
+
+    .form-container {
+        padding: 22px;
+    }
+
+    .form-heading h1 {
+        font-size: 29px;
+    }
+
+    .ingredient-row {
+        flex-direction: column;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-buttons a,
+    .form-buttons button {
+        text-align: center;
+    }
+
+}
+
