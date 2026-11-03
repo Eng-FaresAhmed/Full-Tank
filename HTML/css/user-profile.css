@@ -1,26 +1,16 @@
 /* FullTank User Profile Page
-   Uses the shared FullTank palette from style.css:
-   #073D2B, #10543B, #D5F15B, #C5D4CA
+   Uses the shared FullTank palette from style.css
 */
 
 .profile-page {
     width: min(1120px, 88%);
     margin: 0 auto;
-    padding: 55px 0 80px;
+    padding: 55px 0 20px;
 }
 
 .profile-heading {
     text-align: center;
     margin-bottom: 38px;
-}
-
-.profile-heading .eyebrow,
-.eyebrow {
-    color: #D5F15B;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin-bottom: 12px;
 }
 
 .profile-heading h1 {
@@ -99,6 +89,12 @@
 .stat-label {
     color: #C5D4CA;
     font-size: 12px;
+}
+
+.member-since {
+    color: #91A99B;
+    font-size: 12px;
+    margin-top: 16px;
 }
 
 .summary-link {
@@ -223,6 +219,29 @@
     grid-column: 1 / -1;
 }
 
+/* Checkbox row */
+.form-group.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    align-self: end;
+    min-height: 47px;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-height: 0;
+    padding: 0;
+    accent-color: #D5F15B;
+    cursor: pointer;
+}
+
+.form-group.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
 .form-divider {
     height: 1px;
     background: rgba(197, 212, 202, 0.18);
@@ -230,7 +249,9 @@
 }
 
 .password-section h3 {
-    font-size: 17px;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
     margin-bottom: 7px;
 }
 
@@ -292,11 +313,6 @@
     margin-top: 15px;
 }
 
-/* Highlight current user page in the shared navbar */
-.nav-links a.active {
-    color: #D5F15B;
-}
-
 /* Tablet and mobile */
 @media screen and (max-width: 850px) {
     .profile-layout {
@@ -325,6 +341,7 @@
     }
 
     .summary-stat,
+    .member-since,
     .summary-link {
         grid-column: 1 / -1;
     }
@@ -333,7 +350,7 @@
 @media screen and (max-width: 600px) {
     .profile-page {
         width: 92%;
-        padding: 38px 0 55px;
+        padding: 38px 0 20px;
     }
 
     .profile-form-card {

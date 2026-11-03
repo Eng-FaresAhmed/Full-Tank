@@ -34,6 +34,11 @@
             <p>Manage your personal information and cooking preferences.</p>
         </section>
 
+        <!-- Static sample of the saved state -->
+        <div class="alert alert-success" id="profile-alert" role="status">
+            <span>&#10003; Your profile has been updated successfully.</span>
+        </div>
+
         <section class="profile-layout">
             <!-- Profile summary -->
             <aside class="profile-summary">
@@ -42,10 +47,11 @@
                 <p class="summary-text">Keep your details up to date to make your FullTank experience yours.</p>
 
                 <div class="summary-stat">
-                    <span class="stat-number">—</span>
+                    <span class="stat-number">4</span>
                     <span class="stat-label">Favorite recipes</span>
                 </div>
-                <a class="summary-link" href="favorites.html">View My Favorites →</a>
+                <p class="member-since">Member since 2026</p>
+                <a class="summary-link" href="favorites.html">View My Favorites &rarr;</a>
             </aside>
 
             <!-- Profile form -->
@@ -58,7 +64,7 @@
                     <span class="required-note"><span aria-hidden="true">*</span> Required</span>
                 </div>
 
-                <form action="#" method="get">
+                <form action="#" method="get" id="profile-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
@@ -72,23 +78,10 @@
                                    placeholder="Choose a username" autocomplete="username" required>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group full-width">
                             <label for="email">Email Address <span aria-hidden="true">*</span></label>
                             <input type="email" id="email" name="email"
                                    placeholder="Enter your email address" autocomplete="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cuisine">Favorite Cuisine</label>
-                            <select id="cuisine" name="cuisine">
-                                <option value="">Select a cuisine</option>
-                                <option value="egyptian">Egyptian</option>
-                                <option value="italian">Italian</option>
-                                <option value="mediterranean">Mediterranean</option>
-                                <option value="asian">Asian</option>
-                                <option value="mexican">Mexican</option>
-                                <option value="other">Other</option>
-                            </select>
                         </div>
 
                         <div class="form-group full-width">
@@ -101,25 +94,27 @@
 
                     <div class="form-divider"></div>
 
+                    <!-- Preferences -->
                     <div class="password-section">
                         <div>
-                            <h3>Change Password</h3>
-                            <p>Leave these fields blank if you don't want to change your password.</p>
+                            <h3>Preferences</h3>
+                            <p>Choose what you would like to see on FullTank.</p>
                         </div>
 
                         <div class="form-grid">
                             <div class="form-group">
-                                <label for="new-password">New Password</label>
-                                <input type="password" id="new-password" name="new-password"
-                                       placeholder="Enter a new password" autocomplete="new-password"
-                                       minlength="8">
+                                <label for="preferred-course">Preferred Course</label>
+                                <select id="preferred-course" name="preferred-course">
+                                    <option value="">Select a course</option>
+                                    <option value="appetizer">Appetizer</option>
+                                    <option value="main-course">Main Course</option>
+                                    <option value="dessert">Dessert</option>
+                                </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="confirm-password">Confirm Password</label>
-                                <input type="password" id="confirm-password" name="confirm-password"
-                                       placeholder="Confirm your new password" autocomplete="new-password"
-                                       minlength="8">
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="email-updates" name="email-updates">
+                                <label for="email-updates">Email me about new recipes</label>
                             </div>
                         </div>
                     </div>
@@ -128,11 +123,68 @@
                         <a href="index.html" class="cancel-btn">Cancel</a>
                         <button type="submit" class="save-btn">Save Changes</button>
                     </div>
-                    <p class="prototype-note">Front-end prototype: changes are displayed in the form but are not saved to an account.</p>
                 </form>
+
+                <div class="form-divider"></div>
+
+                <!-- Change password (separate form) -->
+                <form action="#" method="get" id="password-form" aria-labelledby="password-title">
+                    <div class="password-section">
+                        <div>
+                            <h3 id="password-title">Change Password</h3>
+                            <p>Enter your current password, then choose a new one.</p>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="current-password">Current Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="current-password" name="current-password"
+                                       placeholder="Enter your current password" autocomplete="current-password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new-password">New Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="new-password" name="new-password"
+                                       placeholder="Enter a new password" autocomplete="new-password"
+                                       minlength="8" required>
+                                <small>At least 8 characters.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="confirm-password" name="confirm-password"
+                                       placeholder="Confirm your new password" autocomplete="new-password"
+                                       minlength="8" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Update Password</button>
+                    </div>
+                </form>
+
+                <p class="prototype-note">Front-end prototype: changes are displayed in the form but are not saved to an account.</p>
             </section>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div>
+                <a href="index.html" class="logo">Full<span>Tank</span></a>
+                <p>Discover recipes. Create delicious moments.</p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">My Favorites</a></li>
+                <li><a href="user-profile.html">My Profile</a></li>
+            </ul>
+        </div>
+        <p class="copyright">&copy; 2026 FullTank. Front-end prototype.</p>
+    </footer>
 
 </body>
 </html>
