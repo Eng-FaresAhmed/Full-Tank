@@ -62,13 +62,10 @@
             <!-- Recipe Card -->
             <div class="preview-card">
 
-                <!-- Recipe Image -->
+                <!-- Recipe Image (empty until an image is chosen) -->
                 <div class="preview-image">
 
-                    <img
-                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1000"
-                        alt="Creamy Garlic Pasta"
-                    >
+                    <img id="preview-img" alt="Recipe image" style="display: none;">
 
                 </div>
 
@@ -76,100 +73,32 @@
                 <!-- Recipe Information -->
                 <div class="preview-info">
 
-                    <span class="recipe-category">
-                        MAIN COURSE
-                    </span>
+                    <span class="recipe-category" id="preview-course"></span>
 
-                    <h2>Creamy Garlic Pasta</h2>
+                    <h2 id="preview-name"></h2>
 
-                    <p class="recipe-description">
-                        A delicious and creamy pasta dish made with
-                        fresh garlic, parmesan cheese, and a rich
-                        creamy sauce. Perfect for a quick and tasty meal.
-                    </p>
+                    <p class="recipe-description" id="preview-description"></p>
 
                 </div>
 
 
-                <!-- Ingredients -->
+                <!-- Ingredients + Instructions -->
                 <div class="preview-content">
 
                     <div class="preview-ingredients">
 
                         <h3>Ingredients</h3>
 
-                        <ul class="ingredients-list">
-
-                            <li>
-                                <span>Spaghetti</span>
-                                <span>250 g</span>
-                            </li>
-
-                            <li>
-                                <span>Garlic</span>
-                                <span>4 cloves</span>
-                            </li>
-
-                            <li>
-                                <span>Butter</span>
-                                <span>2 tablespoons</span>
-                            </li>
-
-                            <li>
-                                <span>Heavy Cream</span>
-                                <span>1 cup</span>
-                            </li>
-
-                            <li>
-                                <span>Parmesan Cheese</span>
-                                <span>1/2 cup</span>
-                            </li>
-
-                            <li>
-                                <span>Salt and Black Pepper</span>
-                                <span>To taste</span>
-                            </li>
-
-                        </ul>
+                        <ul class="ingredients-list" id="preview-ingredients"></ul>
 
                     </div>
 
 
-                    <!-- Cooking Instructions -->
                     <div class="preview-instructions">
 
                         <h3>Cooking Instructions</h3>
 
-                        <ol>
-
-                            <li>
-                                Boil the spaghetti in salted water
-                                until it becomes tender.
-                            </li>
-
-                            <li>
-                                Melt butter in a pan and add minced garlic.
-                                Cook until fragrant.
-                            </li>
-
-                            <li>
-                                Add heavy cream and stir gently.
-                            </li>
-
-                            <li>
-                                Add parmesan cheese, salt, and black pepper.
-                            </li>
-
-                            <li>
-                                Add the cooked spaghetti and mix
-                                everything together.
-                            </li>
-
-                            <li>
-                                Serve hot and enjoy your creamy garlic pasta!
-                            </li>
-
-                        </ol>
+                        <ol id="preview-instructions"></ol>
 
                     </div>
 
@@ -194,6 +123,57 @@
         </div>
 
     </section>
+
+
+    <script>
+        // Read the recipe saved by the form page
+        var data = JSON.parse(sessionStorage.getItem("recipeData"));
+
+        if (!data) {
+            
+            window.location.href = "recipe-form.html";
+        } else {
+            document.getElementById("preview-course").textContent = (data["course"] || "").toUpperCase();
+            document.getElementById("preview-name").textContent = data["recipe-name"] || "";
+            document.getElementById("preview-description").textContent = data["description"] || "";
+
+        
+            if (data["image"]) {
+                var previewImg = document.getElementById("preview-img");
+                previewImg.src = data["image"];
+                previewImg.style.display = "block";
+            }
+
+            
+            var ingredientsList = document.getElementById("preview-ingredients");
+            var i = 1;
+            while (data["ingredient-" + i] !== undefined) {
+                var name = data["ingredient-" + i].trim();
+                var qty = (data["quantity-" + i] || "").trim();
+                if (name) {
+                    var li = document.createElement("li");
+                    var nameSpan = document.createElement("span");
+                    var qtySpan = document.createElement("span");
+                    nameSpan.textContent = name;
+                    qtySpan.textContent = qty;
+                    li.appendChild(nameSpan);
+                    li.appendChild(qtySpan);
+                    ingredientsList.appendChild(li);
+                }
+                i++;
+            }
+
+            var stepsList = document.getElementById("preview-instructions");
+            (data["instructions"] || "").split("\n").forEach(function (line) {
+                line = line.trim();
+                if (line) {
+                    var li = document.createElement("li");
+                    li.textContent = line;
+                    stepsList.appendChild(li);
+                }
+            });
+        }
+    </script>
 
 </body>
 
