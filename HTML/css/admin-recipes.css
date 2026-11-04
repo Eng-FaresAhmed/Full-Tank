@@ -1,4 +1,5 @@
-
+/* Admin dashboard page styles
+   Main brand colors follow FullTank's existing palette. */
 
 * {
     box-sizing: border-box;
@@ -157,7 +158,7 @@ h1 {
     margin-bottom: 22px;
 }
 
-.search-box {
+.recipe-search-box {
     flex: 1;
 }
 
