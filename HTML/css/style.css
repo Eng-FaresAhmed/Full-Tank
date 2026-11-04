@@ -11,9 +11,14 @@ body {
     background-color: #073D2B;
     font-family: Arial, sans-serif;
     color: white;
+
+    scroll-behavior: smooth; 
 }
 
-
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; 
+}
 /* Navbar */
 
 .navbar {
@@ -110,7 +115,7 @@ body {
     align-items: center;
     width: 650px;
     max-width: 90%;
-    margin: auto;
+    margin: 0 auto 35px auto;
     padding: 7px;
     background-color: white;
     border-radius: 30px;
@@ -142,28 +147,30 @@ body {
 
 /* Categories */
 
-.hero-categories {
+hero-categories {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 25px;
+    margin-top: 15px;
 }
 
 .hero-categories a {
-    color: #DCE8DF;
+    color: #D5F15B;
     text-decoration: none;
-    border: 1px solid #7A9B85;
-    border-radius: 25px;
-    padding: 9px 18px;
-    margin: 5px;
-    font-size: 13px;
+    border: 1.5px solid #D5F15B;
+    background-color: rgba(213, 241, 91, 0.08);
+    border-radius: 30px;
+    padding: 12px 22px;
+    margin: 6px;
+    font-size: 15px;
+    font-weight: 650;
+    transition: all 0.3s ease;
 }
 
 .hero-categories a:hover {
     background-color: #D5F15B;
     color: #073D2B;
 }
-
 
 /* Responsive Design */
 
@@ -333,5 +340,83 @@ body {
 }
 
 
+/* About */
+
+.about-section {
+    padding: 80px 6%;
+    text-align: center;
+    background-color: #073D2B;
+    border-top: 1px solid rgba(197, 212, 202, 0.15);
+}
+
+.about-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.section-label {
+    color: #D5F15B;
+    font-size: 16px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    margin-bottom: 14px;
+}
+
+.about-container h2 {
+    font-family: Georgia, serif;
+    font-size: 38px;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 18px;
+}
+
+.about-container p:not(.section-label) {
+    color: #C5D4CA;
+    font-size: 15px;
+    line-height: 1.8;
+}
 
 
+/* Contact */
+
+#contact {
+    background-color: #10543B;
+    text-align: center;
+    padding: 50px 6% 30px;
+    border-top: 1px solid rgba(197, 212, 202, 0.15);
+}
+
+#contact h3 {
+    font-family: Georgia, serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+#contact p {
+    color: #C5D4CA;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-top: 8px;
+}
+
+#contact p:last-child {
+    margin-top: 28px;
+    font-size: 12px;
+    color: #91A99B;
+}
+
+@media screen and (max-width: 600px) {
+    .about-section {
+        padding: 55px 6%;
+    }
+
+    .about-container h2 {
+        font-size: 30px;
+    }
+
+    #contact h3 {
+        font-size: 26px;
+    }
+}
