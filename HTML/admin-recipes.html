@@ -16,7 +16,6 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="favorites.html">Favorites</a></li>
                 <li><a href="admin-recipes.html">Dashboard</a></li>
             </ul>
         </nav>
@@ -151,67 +150,6 @@
         <p>© 2026 FullTank — Admin Dashboard</p>
     </footer>
 
-    <script>
-        var searchInput = document.getElementById("recipe-search");
-        var courseFilter = document.getElementById("course-filter");
-        var tableBody = document.getElementById("recipe-table-body");
-        var emptyMessage = document.getElementById("empty-message");
-
-        function updateDashboard() {
-            var rows = tableBody.getElementsByTagName("tr");
-            var searchText = searchInput.value.toLowerCase();
-            var selectedCourse = courseFilter.value;
-            var visibleRows = 0;
-            var mainCount = 0;
-            var dessertCount = 0;
-
-            for (var i = 0; i < rows.length; i++) {
-                var recipeName = rows[i].getAttribute("data-name").toLowerCase();
-                var recipeId = rows[i].getAttribute("data-id").toLowerCase();
-                var recipeCourse = rows[i].getAttribute("data-course");
-
-                var matchesSearch = recipeName.indexOf(searchText) !== -1 ||
-                                    recipeId.indexOf(searchText) !== -1;
-                var matchesCourse = selectedCourse === "all" ||
-                                    recipeCourse === selectedCourse;
-
-                if (matchesSearch && matchesCourse) {
-                    rows[i].style.display = "";
-                    visibleRows++;
-
-                    if (recipeCourse === "Main Course") {
-                        mainCount++;
-                    }
-                    if (recipeCourse === "Dessert") {
-                        dessertCount++;
-                    }
-                } else {
-                    rows[i].style.display = "none";
-                }
-            }
-
-            document.getElementById("recipe-count").textContent = visibleRows;
-            document.getElementById("main-count").textContent = mainCount;
-            document.getElementById("dessert-count").textContent = dessertCount;
-            emptyMessage.hidden = visibleRows !== 0;
-        }
-
-        searchInput.addEventListener("input", updateDashboard);
-        courseFilter.addEventListener("change", updateDashboard);
-
-        tableBody.addEventListener("click", function(event) {
-            if (event.target.classList.contains("delete-button")) {
-                var row = event.target.closest("tr");
-                var recipeName = row.getAttribute("data-name");
-
-                if (confirm("Are you sure you want to delete " + recipeName + "?")) {
-                    row.remove();
-                    updateDashboard();
-                }
-            }
-        });
-
-        updateDashboard();
-    </script>
+    
 </body>
 </html>

@@ -3,64 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Favorites - Full Tank</title>
+
+    <title>My Favorites - FullTank</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favorites.css">
 </head>
+
 <body>
 
-    <!-- Minimal Navbar -->
-    <header class="navbar">
-        <a href="index.html" class="logo">
-            Full<span>Tank</span>
-        </a>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="favorites.html" style="color: #D5F15B;">Favorites</a></li>
-                <li><a href="user-profile.html">My Profile</a></li>
-            </ul>
-        </nav>
-        <div class="nav-buttons">
-            <a href="index.html" class="login-btn">Log Out</a>
-        </div>
-    </header>
+<header class="navbar">
 
-    <!-- Page Header -->
-    <section class="hero" style="padding: 40px 20px 20px;">
-        <p class="hero-small-title">YOUR SAVED DISHES</p>
-        <h1 style="font-size: 38px; margin-bottom: 10px;">My Favorite Recipes</h1>
-        <p class="hero-description">Here are all the delicious recipes you have saved for later.</p>
-    </section>
+    <a href="index.html" class="logo">
+        Full<span>Tank</span>
+    </a>
 
-    <!-- Favorite Recipes Section -->
-    <section class="featured favorites-section">
-        <div class="recipe-container favorites-container">
+    <nav aria-label="Main navigation">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="favorites.html" class="active">Favorites</a></li>
+            <li><a href="user-profile.html">My Profile</a></li>
+        </ul>
+    </nav>
 
-            <!-- Favorite Recipe Card 1 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600" alt="Creamy Pasta">
-                <div class="recipe-info">
-                    <p class="recipe-category">ITALIAN</p>
-                    <h3>Creamy Garlic Pasta</h3>
-                    <p>A delicious pasta with creamy garlic sauce.</p>
-                    <div class="recipe-details">
-                        <span>⏱ 25 min</span>
-                        <span>⭐ 4.9</span>
-                    </div>
-                    <a href="recipe-details.html" class="recipe-btn">View Recipe</a>
+    <div class="nav-buttons">
+        <a href="login.html" class="login-btn">Log Out</a>
+    </div>
+
+</header>
+
+<section class="hero favorites-hero">
+    <p class="hero-small-title">YOUR SAVED DISHES</p>
+    <h1>My Favorite Recipes</h1>
+    <p class="hero-description">
+        Here are all the delicious recipes you have saved for later.
+    </p>
+</section>
+
+<section class="featured favorites-section">
+
+    <div class="recipe-container favorites-container">
+
+        <div class="recipe-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600"
+                alt="Creamy Garlic Pasta">
+
+            <div class="recipe-info">
+
+                <p class="recipe-category">ITALIAN</p>
+
+                <h3>Creamy Garlic Pasta</h3>
+
+                <p>A delicious pasta with creamy garlic sauce.</p>
+
+                <div class="recipe-details">
+                    <span>⏱ 25 min</span>
+                    <span>⭐ 4.9</span>
                 </div>
+
+                <a href="recipe-details.html" class="recipe-btn">
+                    View Recipe
+                </a>
+
             </div>
 
         </div>
-    </section>
 
-    <!-- Contact Footer -->
-    <footer id="contact">
-        <h3>Contact</h3>
-        <p>Contact us: support@fulltank.com | +20 123 456 789</p>
-        <p>&copy; 2026 FullTank. All rights reserved.</p>
-    </footer>
+    </div>
+
+</section>
+
+<footer id="contact">
+    <h3>Contact</h3>
+    <p>Contact us: support@fulltank.com | +20 123 456 789</p>
+    <p>&copy; 2026 FullTank. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
