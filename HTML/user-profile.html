@@ -18,7 +18,6 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="recipes.html">Recipes</a></li>
                 <li><a href="favorites.html">My Favorites</a></li>
-                <li><a href="user-profile.html" class="active" aria-current="page">My Profile</a></li>
             </ul>
         </nav>
 
@@ -70,18 +69,21 @@
                         <div class="form-group">
                             <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
                             <input type="text" id="full-name" name="full-name"
+                                   value="Sample User"
                                    placeholder="Enter your full name" autocomplete="name" required>
                         </div>
 
                         <div class="form-group">
                             <label for="username">Username <span aria-hidden="true">*</span></label>
                             <input type="text" id="username" name="username"
+                                   value="sampleuser"
                                    placeholder="Choose a username" autocomplete="username" required>
                         </div>
 
                         <div class="form-group full-width">
                             <label for="email">Email Address <span aria-hidden="true">*</span></label>
                             <input type="email" id="email" name="email"
+                                   value="sample.user@email.com"
                                    placeholder="Enter your email address" autocomplete="email" required>
                             <small class="field-error">Please enter a valid email address.</small>
                         </div>
@@ -89,7 +91,7 @@
                         <div class="form-group full-width">
                             <label for="bio">About Me</label>
                             <textarea id="bio" name="bio" rows="4"
-                                      placeholder="Tell us a little about your cooking interests..."></textarea>
+                                      placeholder="Tell us a little about your cooking interests...">I love cooking Italian food, especially homemade pasta and garlic sauces!</textarea>
                             <small>Share your favorite foods or what you enjoy cooking.</small>
                         </div>
                     </div>
@@ -109,13 +111,13 @@
                                 <select id="preferred-course" name="preferred-course">
                                     <option value="">Select a course</option>
                                     <option value="appetizer">Appetizer</option>
-                                    <option value="main-course">Main Course</option>
+                                    <option value="main-course" selected>Main Course</option>
                                     <option value="dessert">Dessert</option>
                                 </select>
                             </div>
 
                             <div class="form-group checkbox-group">
-                                <input type="checkbox" id="email-updates" name="email-updates">
+                                <input type="checkbox" id="email-updates" name="email-updates" checked>
                                 <label for="email-updates">Email me about new recipes</label>
                             </div>
                         </div>
@@ -172,62 +174,8 @@
                     </div>
                 </form>
 
-                <p class="prototype-note">Front-end prototype: changes are displayed in the form but are not saved to an account.</p>
             </section>
-        </section>
-
-        <!-- Saved recipes preview (sample data) -->
-        <section class="profile-recipes" aria-labelledby="my-recipes-title">
-            <div class="form-heading">
-                <div>
-                    <p class="eyebrow">YOUR RECIPES</p>
-                    <h2 id="my-recipes-title">Recently Saved Recipes</h2>
-                </div>
-                <a class="summary-link" href="favorites.html">View all favorites &rarr;</a>
-            </div>
-
-            <ul class="mini-recipes">
-                <li>
-                    <div>
-                        <span class="badge">MAIN COURSE</span>
-                        <h3>Creamy Garlic Pasta</h3>
-                    </div>
-                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
-                </li>
-                <li>
-                    <div>
-                        <span class="badge">MAIN COURSE</span>
-                        <h3>Grilled Beef Steak</h3>
-                    </div>
-                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
-                </li>
-                <li>
-                    <div>
-                        <span class="badge">APPETIZER</span>
-                        <h3>Mushroom Risotto</h3>
-                    </div>
-                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
-                </li>
-            </ul>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div>
-                <a href="index.html" class="logo">Full<span>Tank</span></a>
-                <p>Discover recipes. Create delicious moments.</p>
-            </div>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="favorites.html">My Favorites</a></li>
-                <li><a href="user-profile.html">My Profile</a></li>
-            </ul>
-        </div>
-        <p class="copyright">&copy; 2026 FullTank. Front-end prototype.</p>
-    </footer>
-
-</body>
-</html>
+    
