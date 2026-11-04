@@ -388,3 +388,95 @@
         text-align: left;
     }
 }
+
+/* Error messages: appear only when a typed value is invalid (no JavaScript) */
+.form-group small.field-error {
+    display: none;
+    color: #FF9C92;
+    font-weight: bold;
+}
+
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: #E5675B;
+}
+
+.form-group input:not(:placeholder-shown):invalid ~ .field-error {
+    display: block;
+}
+
+/* Account email in the summary card */
+.summary-email {
+    color: #D5F15B;
+    font-size: 13px;
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+/* Saved recipes preview */
+.profile-recipes {
+    margin-top: 26px;
+    padding: 32px;
+    background-color: #10543B;
+    border: 1px solid rgba(197, 212, 202, 0.15);
+    border-radius: 18px;
+}
+
+.profile-recipes .form-heading {
+    align-items: center;
+}
+
+.profile-recipes .summary-link {
+    margin-top: 0;
+}
+
+.mini-recipes {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.mini-recipes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 18px;
+    background: #073D2B;
+    border: 1px solid #47735E;
+    border-radius: 12px;
+}
+
+.mini-recipes h3 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.mini-link {
+    color: #073D2B;
+    background: #D5F15B;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 9px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.mini-link:hover {
+    background: #C2DF42;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-recipes {
+        padding: 22px 18px;
+    }
+
+    .profile-recipes .form-heading {
+        align-items: flex-start;
+    }
+
+    .mini-recipes li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

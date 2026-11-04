@@ -34,17 +34,18 @@
             <p>Manage your personal information and cooking preferences.</p>
         </section>
 
-        <!-- Static sample of the saved state -->
-        <div class="alert alert-success" id="profile-alert" role="status">
+        <!-- Appears after a valid submit of the profile form -->
+        <div class="alert alert-success alert-target" id="profile-saved" role="status">
             <span>&#10003; Your profile has been updated successfully.</span>
         </div>
 
         <section class="profile-layout">
             <!-- Profile summary -->
             <aside class="profile-summary">
-                <div class="avatar" aria-hidden="true">U</div>
-                <h2>Your Profile</h2>
-                <p class="summary-text">Keep your details up to date to make your FullTank experience yours.</p>
+                <div class="avatar" aria-hidden="true">S</div>
+                <h2>Sample User</h2>
+                <p class="summary-email">sample.user@email.com</p>
+                <p class="summary-text">Signed in to your account. Update your details or password below at any time.</p>
 
                 <div class="summary-stat">
                     <span class="stat-number">4</span>
@@ -64,7 +65,7 @@
                     <span class="required-note"><span aria-hidden="true">*</span> Required</span>
                 </div>
 
-                <form action="#" method="get" id="profile-form">
+                <form action="#profile-saved" method="get" id="profile-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
@@ -82,6 +83,7 @@
                             <label for="email">Email Address <span aria-hidden="true">*</span></label>
                             <input type="email" id="email" name="email"
                                    placeholder="Enter your email address" autocomplete="email" required>
+                            <small class="field-error">Please enter a valid email address.</small>
                         </div>
 
                         <div class="form-group full-width">
@@ -128,31 +130,37 @@
                 <div class="form-divider"></div>
 
                 <!-- Change password (separate form) -->
-                <form action="#" method="get" id="password-form" aria-labelledby="password-title">
+                <!-- Password fields have no name attribute so they are never put in the URL -->
+                <form action="#password-updated" method="get" id="password-form" aria-labelledby="password-title">
                     <div class="password-section">
                         <div>
                             <h3 id="password-title">Change Password</h3>
                             <p>Enter your current password, then choose a new one.</p>
                         </div>
 
+                        <div class="alert alert-success alert-target" id="password-updated" role="status">
+                            <span>&#10003; Your password has been updated.</span>
+                        </div>
+
                         <div class="form-grid">
                             <div class="form-group full-width">
                                 <label for="current-password">Current Password <span aria-hidden="true">*</span></label>
-                                <input type="password" id="current-password" name="current-password"
+                                <input type="password" id="current-password"
                                        placeholder="Enter your current password" autocomplete="current-password" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="new-password">New Password <span aria-hidden="true">*</span></label>
-                                <input type="password" id="new-password" name="new-password"
+                                <input type="password" id="new-password"
                                        placeholder="Enter a new password" autocomplete="new-password"
                                        minlength="8" required>
                                 <small>At least 8 characters.</small>
+                                <small class="field-error">Password must be at least 8 characters.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="confirm-password">Confirm Password <span aria-hidden="true">*</span></label>
-                                <input type="password" id="confirm-password" name="confirm-password"
+                                <input type="password" id="confirm-password"
                                        placeholder="Confirm your new password" autocomplete="new-password"
                                        minlength="8" required>
                             </div>
@@ -166,6 +174,41 @@
 
                 <p class="prototype-note">Front-end prototype: changes are displayed in the form but are not saved to an account.</p>
             </section>
+        </section>
+
+        <!-- Saved recipes preview (sample data) -->
+        <section class="profile-recipes" aria-labelledby="my-recipes-title">
+            <div class="form-heading">
+                <div>
+                    <p class="eyebrow">YOUR RECIPES</p>
+                    <h2 id="my-recipes-title">Recently Saved Recipes</h2>
+                </div>
+                <a class="summary-link" href="favorites.html">View all favorites &rarr;</a>
+            </div>
+
+            <ul class="mini-recipes">
+                <li>
+                    <div>
+                        <span class="badge">MAIN COURSE</span>
+                        <h3>Creamy Garlic Pasta</h3>
+                    </div>
+                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
+                </li>
+                <li>
+                    <div>
+                        <span class="badge">MAIN COURSE</span>
+                        <h3>Grilled Beef Steak</h3>
+                    </div>
+                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
+                </li>
+                <li>
+                    <div>
+                        <span class="badge">APPETIZER</span>
+                        <h3>Mushroom Risotto</h3>
+                    </div>
+                    <a href="recipe-details.html" class="mini-link">View Recipe</a>
+                </li>
+            </ul>
         </section>
     </main>
 
