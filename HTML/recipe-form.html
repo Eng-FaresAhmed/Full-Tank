@@ -56,13 +56,11 @@
             </div>
 
 
-            <form action="recipe-preview.html" method="get">
+            <form id="recipe-form">
 
                 <!-- Recipe Name -->
                 <div class="form-group">
-
                     <label for="recipe-name">Recipe Name *</label>
-
                     <input
                         type="text"
                         id="recipe-name"
@@ -70,27 +68,18 @@
                         placeholder="Enter recipe name"
                         required
                     >
-
                 </div>
 
 
                 <!-- Recipe Course -->
                 <div class="form-group">
-
                     <label for="course">Recipe Category *</label>
-
                     <select id="course" name="course" required>
-
                         <option value="">Select a category</option>
-
                         <option value="Appetizer">Appetizer</option>
-
                         <option value="Main Course">Main Course</option>
-
                         <option value="Dessert">Dessert</option>
-
                     </select>
-
                 </div>
 
 
@@ -98,109 +87,47 @@
                 <div class="ingredients-section">
 
                     <div class="ingredients-heading">
-
                         <h2>Ingredients</h2>
-
                         <p>Add all ingredients with their quantities.</p>
-
                     </div>
 
 
                     <!-- Ingredient 1 -->
                     <div class="ingredient-row">
-
                         <div class="ingredient-input">
-
                             <label for="ingredient-1">Ingredient Name *</label>
-
-                            <input
-                                type="text"
-                                id="ingredient-1"
-                                name="ingredient-1"
-                                placeholder="e.g. Flour"
-                                required
-                            >
-
+                            <input type="text" id="ingredient-1" name="ingredient-1" placeholder="e.g. Flour" required>
                         </div>
-
                         <div class="quantity-input">
-
                             <label for="quantity-1">Quantity *</label>
-
-                            <input
-                                type="text"
-                                id="quantity-1"
-                                name="quantity-1"
-                                placeholder="e.g. 2 cups"
-                                required
-                            >
-
+                            <input type="text" id="quantity-1" name="quantity-1" placeholder="e.g. 2 cups" required>
                         </div>
-
                     </div>
 
 
                     <!-- Ingredient 2 -->
                     <div class="ingredient-row">
-
                         <div class="ingredient-input">
-
                             <label for="ingredient-2">Ingredient Name</label>
-
-                            <input
-                                type="text"
-                                id="ingredient-2"
-                                name="ingredient-2"
-                                placeholder="e.g. Sugar"
-                            >
-
+                            <input type="text" id="ingredient-2" name="ingredient-2" placeholder="e.g. Sugar">
                         </div>
-
                         <div class="quantity-input">
-
                             <label for="quantity-2">Quantity</label>
-
-                            <input
-                                type="text"
-                                id="quantity-2"
-                                name="quantity-2"
-                                placeholder="e.g. 1 cup"
-                            >
-
+                            <input type="text" id="quantity-2" name="quantity-2" placeholder="e.g. 1 cup">
                         </div>
-
                     </div>
 
 
                     <!-- Ingredient 3 -->
                     <div class="ingredient-row">
-
                         <div class="ingredient-input">
-
                             <label for="ingredient-3">Ingredient Name</label>
-
-                            <input
-                                type="text"
-                                id="ingredient-3"
-                                name="ingredient-3"
-                                placeholder="e.g. Butter"
-                            >
-
+                            <input type="text" id="ingredient-3" name="ingredient-3" placeholder="e.g. Butter">
                         </div>
-
                         <div class="quantity-input">
-
                             <label for="quantity-3">Quantity</label>
-
-                            <input
-                                type="text"
-                                id="quantity-3"
-                                name="quantity-3"
-                                placeholder="e.g. 100 g"
-                            >
-
+                            <input type="text" id="quantity-3" name="quantity-3" placeholder="e.g. 100 g">
                         </div>
-
                     </div>
 
 
@@ -211,11 +138,16 @@
                 </div>
 
 
+                <!-- Recipe Image -->
+                <div class="form-group">
+                    <label for="recipe-image">Recipe Image</label>
+                    <input type="file" id="recipe-image" accept="image/*">
+                </div>
+
+
                 <!-- Recipe Description -->
                 <div class="form-group">
-
                     <label for="description">Recipe Description *</label>
-
                     <textarea
                         id="description"
                         name="description"
@@ -223,15 +155,12 @@
                         placeholder="Write a short description about your recipe..."
                         required
                     ></textarea>
-
                 </div>
 
 
                 <!-- Cooking Instructions -->
                 <div class="form-group">
-
-                    <label for="instructions">Cooking Instructions *</label>
-
+                    <label for="instructions">Cooking Instructions * (one step per line)</label>
                     <textarea
                         id="instructions"
                         name="instructions"
@@ -239,7 +168,6 @@
                         placeholder="Write the steps to prepare your recipe..."
                         required
                     ></textarea>
-
                 </div>
 
 
@@ -265,6 +193,71 @@
         </div>
 
     </section>
+
+
+    <script>
+        var form = document.getElementById("recipe-form");
+
+        
+        var saved = JSON.parse(sessionStorage.getItem("recipeData"));
+        if (saved) {
+            for (var key in saved) {
+                var field = form.elements[key];
+                if (field && field.type !== "file") field.value = saved[key];
+            }
+        }
+
+        
+        function readImage(file, callback) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                var img = new Image();
+                img.onload = function () {
+                    var scale = Math.min(1, 900 / img.width);
+                    var canvas = document.createElement("canvas");
+                    canvas.width = img.width * scale;
+                    canvas.height = img.height * scale;
+                    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+                    callback(canvas.toDataURL("image/jpeg", 0.8));
+                };
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function saveAndGo(data) {
+            sessionStorage.setItem("recipeData", JSON.stringify(data));
+            window.location.href = "recipe-preview.html";
+        }
+
+        
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var data = {};
+            new FormData(form).forEach(function (value, key) {
+                if (typeof value === "string") data[key] = value;
+            });
+
+            var file = document.getElementById("recipe-image").files[0];
+
+            if (file) {
+                readImage(file, function (imageData) {
+                    data.image = imageData;
+                    saveAndGo(data);
+                });
+            } else {
+        
+                if (saved && saved.image) data.image = saved.image;
+                saveAndGo(data);
+            }
+        });
+
+       
+        form.addEventListener("reset", function () {
+            sessionStorage.removeItem("recipeData");
+        });
+    </script>
 
 </body>
 

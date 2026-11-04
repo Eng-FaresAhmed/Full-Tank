@@ -1,1 +1,188 @@
-<!--Mariem -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - FullTank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/recipes.css">
+</head>
+
+<body class="recipes-body">
+
+  
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            Full<span>Tank</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+    <main class="rc-main">
+
+        <section class="rc-heading">
+            <h1>Find Your Next Favorite Recipe</h1>
+            <p>Search by recipe name, ingredient, or course.</p>
+        </section>
+
+        <form class="rc-search" action="recipes.html" method="get">
+            <div class="rc-field">
+                <label for="recipe-name">Recipe name</label>
+                <input type="text" id="recipe-name" name="recipe-name" placeholder="Search by recipe name">
+            </div>
+
+            <div class="rc-field">
+                <label for="ingredient">Ingredient</label>
+                <input type="text" id="ingredient" name="ingredient" placeholder="Search by ingredient">
+            </div>
+
+            <div class="rc-field">
+                <label for="course">Course</label>
+                <select id="course" name="course">
+                    <option value="">All courses</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="main">Main Course</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+
+            <div class="rc-actions">
+                <button type="submit" class="rc-btn rc-btn-lime">Search</button>
+                <button type="reset" class="rc-btn">Reset</button>
+            </div>
+        </form>
+
+        <div class="rc-results-bar">
+            <p class="rc-count">Showing 6 recipes</p>
+            <a class="rc-empty-link" href="#no-results">See empty-state example</a>
+        </div>
+
+        <section class="rc-grid" aria-label="Recipe results">
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=700" alt="Fresh Greek salad in a bowl">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Appetizer</p>
+                    <h2>Fresh Greek Salad</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 412 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav" aria-label="Add Fresh Greek Salad to favorites">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=700" alt="Creamy garlic pasta">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Main Course</p>
+                    <h2>Creamy Garlic Parmesan Pasta</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 634 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav is-active" aria-label="Remove Creamy Garlic Parmesan Pasta from favorites">♥</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=700" alt="Grilled beef steak">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Main Course</p>
+                    <h2>Classic Beef Stroganoff</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 745 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav" aria-label="Add Classic Beef Stroganoff to favorites">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=700" alt="Honey glazed salmon">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Main Course</p>
+                    <h2>Honey Glazed Salmon</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 347 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav" aria-label="Add Honey Glazed Salmon to favorites">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700" alt="Chocolate cake slice">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Dessert</p>
+                    <h2>Rich Chocolate Cake</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 528 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav" aria-label="Add Rich Chocolate Cake to favorites">♡</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="rc-card">
+                <a class="rc-card-img" href="recipe-details.html">
+                    <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=700" alt="Stack of fluffy pancakes">
+                </a>
+                <div class="rc-card-body">
+                    <p class="rc-course">Dessert</p>
+                    <h2>Fluffy Berry Pancakes</h2>
+                    <p class="rc-rating"><span>★★★★★</span> 289 Reviews</p>
+                    <div class="rc-card-actions">
+                        <a class="rc-btn" href="recipe-details.html">View Details</a>
+                        <button type="button" class="rc-fav" aria-label="Add Fluffy Berry Pancakes to favorites">♡</button>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Empty state example: shown when the link above is clicked -->
+        <section class="rc-empty" id="no-results">
+            <h2>No recipes found</h2>
+            <p>We could not find any recipe matching your search. Try a different name, ingredient, or course.</p>
+            <a class="rc-btn rc-btn-lime" href="recipes.html">Clear filters</a>
+        </section>
+
+    </main>
+
+    <footer class="rc-footer">
+        <p>&copy; 2026 FullTank. IS231 Web Technology Project.</p>
+    </footer>
+
+</body>
+
+</html>
