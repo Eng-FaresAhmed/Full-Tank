@@ -1,0 +1,482 @@
+/* FullTank User Profile Page
+   Uses the shared FullTank palette from style.css
+*/
+
+.profile-page {
+    width: min(1120px, 88%);
+    margin: 0 auto;
+    padding: 55px 0 20px;
+}
+
+.profile-heading {
+    text-align: center;
+    margin-bottom: 38px;
+}
+
+.profile-heading h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.profile-heading > p:last-child {
+    color: #C5D4CA;
+    line-height: 1.7;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 26px;
+    align-items: start;
+}
+
+.profile-summary,
+.profile-form-card {
+    background-color: #10543B;
+    border: 1px solid rgba(197, 212, 202, 0.15);
+    border-radius: 18px;
+}
+
+.profile-summary {
+    padding: 28px 22px;
+    text-align: center;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #D5F15B;
+    color: #073D2B;
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: bold;
+    border: 5px solid rgba(213, 241, 91, 0.18);
+}
+
+.profile-summary h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.summary-text {
+    color: #C5D4CA;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.summary-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px 0;
+    margin-top: 20px;
+    border-top: 1px solid rgba(197, 212, 202, 0.18);
+    border-bottom: 1px solid rgba(197, 212, 202, 0.18);
+}
+
+.stat-number {
+    color: #D5F15B;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.stat-label {
+    color: #C5D4CA;
+    font-size: 12px;
+}
+
+.member-since {
+    color: #91A99B;
+    font-size: 12px;
+    margin-top: 16px;
+}
+
+.summary-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #D5F15B;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.summary-link:hover {
+    text-decoration: underline;
+}
+
+.profile-form-card {
+    padding: 32px;
+}
+
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.form-heading .eyebrow {
+    margin-bottom: 8px;
+}
+
+.form-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.required-note {
+    color: #C5D4CA;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.required-note span,
+.form-group label span {
+    color: #D5F15B;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-group label {
+    color: #F4F7F3;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 9px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    color: #F4F7F3;
+    background: #073D2B;
+    border: 1px solid #47735E;
+    border-radius: 9px;
+    padding: 13px 14px;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 47px;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #91A99B;
+}
+
+.form-group select {
+    color: #C5D4CA;
+}
+
+.form-group select option {
+    background: #073D2B;
+    color: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #D5F15B;
+    box-shadow: 0 0 0 3px rgba(213, 241, 91, 0.12);
+}
+
+.form-group small {
+    color: #AFC2B5;
+    font-size: 11px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Checkbox row */
+.form-group.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    align-self: end;
+    min-height: 47px;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-height: 0;
+    padding: 0;
+    accent-color: #D5F15B;
+    cursor: pointer;
+}
+
+.form-group.checkbox-group label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.form-divider {
+    height: 1px;
+    background: rgba(197, 212, 202, 0.18);
+    margin: 30px 0;
+}
+
+.password-section h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+    margin-bottom: 7px;
+}
+
+.password-section > div:first-child p {
+    color: #C5D4CA;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.cancel-btn,
+.save-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 45px;
+    padding: 12px 22px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.cancel-btn {
+    color: #F4F7F3;
+    background: transparent;
+    border: 1px solid #7A9B85;
+}
+
+.cancel-btn:hover {
+    background: rgba(197, 212, 202, 0.08);
+}
+
+.save-btn {
+    color: #073D2B;
+    background: #D5F15B;
+    border: 1px solid #D5F15B;
+}
+
+.save-btn:hover {
+    background: #C2DF42;
+    border-color: #C2DF42;
+}
+
+.prototype-note {
+    color: #91A99B;
+    font-size: 11px;
+    line-height: 1.6;
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Tablet and mobile */
+@media screen and (max-width: 850px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-summary {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 18px;
+        text-align: left;
+        align-items: center;
+    }
+
+    .avatar {
+        grid-row: span 2;
+        margin: 0;
+    }
+
+    .profile-summary h2 {
+        align-self: end;
+    }
+
+    .summary-text {
+        align-self: start;
+    }
+
+    .summary-stat,
+    .member-since,
+    .summary-link {
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile-page {
+        width: 92%;
+        padding: 38px 0 20px;
+    }
+
+    .profile-form-card {
+        padding: 22px 18px;
+    }
+
+    .form-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .form-heading h2 {
+        font-size: 25px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .full-width {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .save-btn {
+        width: 100%;
+    }
+
+    .prototype-note {
+        text-align: left;
+    }
+}
+
+/* Error messages: appear only when a typed value is invalid (no JavaScript) */
+.form-group small.field-error {
+    display: none;
+    color: #FF9C92;
+    font-weight: bold;
+}
+
+.form-group input:not(:placeholder-shown):invalid {
+    border-color: #E5675B;
+}
+
+.form-group input:not(:placeholder-shown):invalid ~ .field-error {
+    display: block;
+}
+
+/* Account email in the summary card */
+.summary-email {
+    color: #D5F15B;
+    font-size: 13px;
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+/* Saved recipes preview */
+.profile-recipes {
+    margin-top: 26px;
+    padding: 32px;
+    background-color: #10543B;
+    border: 1px solid rgba(197, 212, 202, 0.15);
+    border-radius: 18px;
+}
+
+.profile-recipes .form-heading {
+    align-items: center;
+}
+
+.profile-recipes .summary-link {
+    margin-top: 0;
+}
+
+.mini-recipes {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.mini-recipes li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 18px;
+    background: #073D2B;
+    border: 1px solid #47735E;
+    border-radius: 12px;
+}
+
+.mini-recipes h3 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.mini-link {
+    color: #073D2B;
+    background: #D5F15B;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 9px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.mini-link:hover {
+    background: #C2DF42;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-recipes {
+        padding: 22px 18px;
+    }
+
+    .profile-recipes .form-heading {
+        align-items: flex-start;
+    }
+
+    .mini-recipes li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

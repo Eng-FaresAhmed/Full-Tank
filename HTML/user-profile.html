@@ -1,1 +1,181 @@
-<!--Person3-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | FullTank</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/user-profile.css">
+</head>
+<body>
+
+    <!-- User Navigation -->
+    <header class="navbar">
+        <a href="index.html" class="logo">Full<span>Tank</span></a>
+
+        <nav aria-label="Main navigation">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="recipes.html">Recipes</a></li>
+                <li><a href="favorites.html">My Favorites</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Logout</a>
+        </div>
+    </header>
+
+    <main class="profile-page">
+        <section class="profile-heading">
+            <p class="eyebrow">YOUR ACCOUNT</p>
+            <h1>My Profile</h1>
+            <p>Manage your personal information and cooking preferences.</p>
+        </section>
+
+        <!-- Appears after a valid submit of the profile form -->
+        <div class="alert alert-success alert-target" id="profile-saved" role="status">
+            <span>&#10003; Your profile has been updated successfully.</span>
+        </div>
+
+        <section class="profile-layout">
+            <!-- Profile summary -->
+            <aside class="profile-summary">
+                <div class="avatar" aria-hidden="true">S</div>
+                <h2>Sample User</h2>
+                <p class="summary-email">sample.user@email.com</p>
+                <p class="summary-text">Signed in to your account. Update your details or password below at any time.</p>
+
+                <div class="summary-stat">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Favorite recipes</span>
+                </div>
+                <p class="member-since">Member since 2026</p>
+                <a class="summary-link" href="favorites.html">View My Favorites &rarr;</a>
+            </aside>
+
+            <!-- Profile form -->
+            <section class="profile-form-card" aria-labelledby="personal-info-title">
+                <div class="form-heading">
+                    <div>
+                        <p class="eyebrow">ACCOUNT DETAILS</p>
+                        <h2 id="personal-info-title">Personal Information</h2>
+                    </div>
+                    <span class="required-note"><span aria-hidden="true">*</span> Required</span>
+                </div>
+
+                <form action="#profile-saved" method="get" id="profile-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="full-name">Full Name <span aria-hidden="true">*</span></label>
+                            <input type="text" id="full-name" name="full-name"
+                                   value="Sample User"
+                                   placeholder="Enter your full name" autocomplete="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username <span aria-hidden="true">*</span></label>
+                            <input type="text" id="username" name="username"
+                                   value="sampleuser"
+                                   placeholder="Choose a username" autocomplete="username" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+                            <input type="email" id="email" name="email"
+                                   value="sample.user@email.com"
+                                   placeholder="Enter your email address" autocomplete="email" required>
+                            <small class="field-error">Please enter a valid email address.</small>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="bio">About Me</label>
+                            <textarea id="bio" name="bio" rows="4"
+                                      placeholder="Tell us a little about your cooking interests...">I love cooking Italian food, especially homemade pasta and garlic sauces!</textarea>
+                            <small>Share your favorite foods or what you enjoy cooking.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Preferences -->
+                    <div class="password-section">
+                        <div>
+                            <h3>Preferences</h3>
+                            <p>Choose what you would like to see on FullTank.</p>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="preferred-course">Preferred Course</label>
+                                <select id="preferred-course" name="preferred-course">
+                                    <option value="">Select a course</option>
+                                    <option value="appetizer">Appetizer</option>
+                                    <option value="main-course" selected>Main Course</option>
+                                    <option value="dessert">Dessert</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="email-updates" name="email-updates" checked>
+                                <label for="email-updates">Email me about new recipes</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <a href="index.html" class="cancel-btn">Cancel</a>
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+
+                <div class="form-divider"></div>
+
+                <!-- Change password (separate form) -->
+                <!-- Password fields have no name attribute so they are never put in the URL -->
+                <form action="#password-updated" method="get" id="password-form" aria-labelledby="password-title">
+                    <div class="password-section">
+                        <div>
+                            <h3 id="password-title">Change Password</h3>
+                            <p>Enter your current password, then choose a new one.</p>
+                        </div>
+
+                        <div class="alert alert-success alert-target" id="password-updated" role="status">
+                            <span>&#10003; Your password has been updated.</span>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group full-width">
+                                <label for="current-password">Current Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="current-password"
+                                       placeholder="Enter your current password" autocomplete="current-password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new-password">New Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="new-password"
+                                       placeholder="Enter a new password" autocomplete="new-password"
+                                       minlength="8" required>
+                                <small>At least 8 characters.</small>
+                                <small class="field-error">Password must be at least 8 characters.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password <span aria-hidden="true">*</span></label>
+                                <input type="password" id="confirm-password"
+                                       placeholder="Confirm your new password" autocomplete="new-password"
+                                       minlength="8" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Update Password</button>
+                    </div>
+                </form>
+
+            </section>
+        </section>
+    </main>
+
+    
