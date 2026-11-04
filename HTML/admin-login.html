@@ -1,1 +1,78 @@
-<!--Person4--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | FullTank</title>
+  <link rel="stylesheet" href="css/admin-login.css">
+</head>
+<body>
+  <main class="admin-login-page">
+    <section class="admin-login-card" aria-labelledby="login-title">
+      <a class="admin-login-brand" href="index.html" aria-label="FullTank home">
+        <span class="admin-login-brand-mark">F</span>
+        <span>FullTank</span>
+      </a>
+
+      <div class="admin-login-heading">
+        <span class="admin-login-eyebrow">ADMINISTRATION</span>
+        <h1 id="login-title">Welcome back</h1>
+        <p>Sign in to manage recipes and keep your kitchen organized.</p>
+      </div>
+
+      <form id="adminLoginForm" class="admin-login-form">
+        <div class="admin-login-field">
+          <label for="adminEmail">Email address</label>
+          <input id="adminEmail" name="email" type="email"
+                 placeholder="admin@example.com" autocomplete="username" required>
+        </div>
+
+        <div class="admin-login-field">
+          <div class="admin-login-label-row">
+            <label for="adminPassword">Password</label>
+          </div>
+          <input id="adminPassword" name="password" type="password"
+                 placeholder="Enter your password" autocomplete="current-password" required>
+        </div>
+
+        <p id="adminLoginMessage" class="admin-login-message" role="alert" aria-live="polite"></p>
+        <button class="admin-login-submit" type="submit">
+          <span>Sign in to dashboard</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <div class="admin-login-divider"><span>OR</span></div>
+      <a class="admin-login-back" href="login.html">← Back to user login</a>
+      <p class="admin-login-note">Phase 1 demo: this screen is a front-end prototype and does not verify credentials on a server.</p>
+    </section>
+
+    <aside class="admin-login-side" aria-label="FullTank introduction">
+      <div class="admin-login-side-content">
+        <span class="admin-login-side-tag">YOUR RECIPES, IN ONE PLACE</span>
+        <h2>Good food starts with a great idea.</h2>
+        <p>Organize recipes, review ingredients, and keep your collection fresh.</p>
+        <div class="admin-login-decoration" aria-hidden="true">
+          <span>✳</span><span>✦</span><span>✳</span>
+        </div>
+      </div>
+      <span class="admin-login-side-footer">FULLTANK · RECIPE FINDER</span>
+    </aside>
+  </main>
+
+  <script>
+    // Phase 1 front-end demo only. No real authentication or password storage.
+    const form = document.getElementById("adminLoginForm");
+    const message = document.getElementById("adminLoginMessage");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      message.textContent = "";
+      window.location.href = "admin-recipes.html";
+    });
+  </script>
+</body>
+</html>
